@@ -130,253 +130,253 @@ export class Form {
   // PASO 2
 
   // MÓDULO 1
-  // get module1(): FormGroup {
-  //   return this.form2.get('module1') as FormGroup;
-  // }
-  // get module1Question1(): FormControl {
-  //   return this.module1.get('question1') as FormControl;
-  // }
-  // get module1Question2(): FormControl {
-  //   return this.module1.get('question2') as FormControl;
-  // }
-  // get module1Question3(): FormControl {
-  //   return this.module1.get('question3') as FormControl;
-  // }
-  // get module1Question4(): FormControl {
-  //   return this.module1.get('question4') as FormControl;
-  // }
-  // get module1Question5(): FormControl {
-  //   return this.module1.get('question5') as FormControl;
-  // }
-  // get module1Question6(): FormControl {
-  //   return this.module1.get('question6') as FormControl;
-  // }
+  get module1(): FormGroup {
+    return this.form2.get('module1') as FormGroup;
+  }
+  get module1Question1(): FormControl {
+    return this.module1.get('question1') as FormControl;
+  }
+  get module1Question2(): FormControl {
+    return this.module1.get('question2') as FormControl;
+  }
+  get module1Question3(): FormControl {
+    return this.module1.get('question3') as FormControl;
+  }
+  get module1Question4(): FormControl {
+    return this.module1.get('question4') as FormControl;
+  }
+  get module1Question5(): FormControl {
+    return this.module1.get('question5') as FormControl;
+  }
+  get module1Question6(): FormControl {
+    return this.module1.get('question6') as FormControl;
+  }
 
   // MÓDULO 2
-  // get module2(): FormGroup {
-  //   return this.form2.get('module2') as FormGroup;
-  // }
-  // get module2Question1(): FormControl {
-  //   return this.module2.get('question1') as FormControl;
-  // }
-  // get module2Question2(): FormControl {
-  //   return this.module2.get('question2') as FormControl;
-  // }
-  // get module2Question3(): FormControl {
-  //   return this.module2.get('question3') as FormControl;
-  // }
-  // get module2Question4(): FormControl {
-  //   return this.module2.get('question4') as FormControl;
-  // }
-  // get module2Question5(): FormControl {
-  //   return this.module2.get('question5') as FormControl;
-  // }
-  // get module2Question6(): FormControl {
-  //   return this.module2.get('question6') as FormControl;
-  // }
+  get module2(): FormGroup {
+    return this.form2.get('module2') as FormGroup;
+  }
+  get module2Question1(): FormControl {
+    return this.module2.get('question1') as FormControl;
+  }
+  get module2Question2(): FormControl {
+    return this.module2.get('question2') as FormControl;
+  }
+  get module2Question3(): FormControl {
+    return this.module2.get('question3') as FormControl;
+  }
+  get module2Question4(): FormControl {
+    return this.module2.get('question4') as FormControl;
+  }
+  get module2Question5(): FormControl {
+    return this.module2.get('question5') as FormControl;
+  }
+  get module2Question6(): FormControl {
+    return this.module2.get('question6') as FormControl;
+  }
 
   // MÓDULO 3
-  // get module3(): FormGroup {
-  //   return this.form2.get('module3') as FormGroup;
-  // }
-  // get module3Question1(): FormControl {
-  //   return this.module3.get('question1') as FormControl;
-  // }
-  // get module3Question2(): FormControl {
-  //   return this.module3.get('question2') as FormControl;
-  // }
-  // get module3Question3(): FormControl {
-  //   return this.module3.get('question3') as FormControl;
-  // }
-  // get module3Question4(): FormControl {
-  //   return this.module3.get('question4') as FormControl;
-  // }
-  // get module3Question5(): FormControl {
-  //   return this.module3.get('question5') as FormControl;
-  // }
-  // get module3Question6(): FormControl {
-  //   return this.module3.get('question6') as FormControl;
-  // }
+  get module3(): FormGroup {
+    return this.form2.get('module3') as FormGroup;
+  }
+  get module3Question1(): FormControl {
+    return this.module3.get('question1') as FormControl;
+  }
+  get module3Question2(): FormControl {
+    return this.module3.get('question2') as FormControl;
+  }
+  get module3Question3(): FormControl {
+    return this.module3.get('question3') as FormControl;
+  }
+  get module3Question4(): FormControl {
+    return this.module3.get('question4') as FormControl;
+  }
+  get module3Question5(): FormControl {
+    return this.module3.get('question5') as FormControl;
+  }
+  get module3Question6(): FormControl {
+    return this.module3.get('question6') as FormControl;
+  }
 
   // MÓDULO 4
-  // get module4(): FormGroup {
-  //   return this.form2.get('module4') as FormGroup;
-  // }
-  // get module4Question1(): FormControl {
-  //   return this.module4.get('question1') as FormControl;
-  // }
-  // get module4Question2(): FormControl {
-  //   return this.module4.get('question2') as FormControl;
-  // }
-  // get module4Question3(): FormControl {
-  //   return this.module4.get('question3') as FormControl;
-  // }
-  // get module4Question4(): FormControl {
-  //   return this.module4.get('question4') as FormControl;
-  // }
-  // get module4Question5(): FormControl {
-  //   return this.module4.get('question5') as FormControl;
-  // }
-  // get module4Question6(): FormControl {
-  //   return this.module4.get('question6') as FormControl;
-  // }
+  get module4(): FormGroup {
+    return this.form2.get('module4') as FormGroup;
+  }
+  get module4Question1(): FormControl {
+    return this.module4.get('question1') as FormControl;
+  }
+  get module4Question2(): FormControl {
+    return this.module4.get('question2') as FormControl;
+  }
+  get module4Question3(): FormControl {
+    return this.module4.get('question3') as FormControl;
+  }
+  get module4Question4(): FormControl {
+    return this.module4.get('question4') as FormControl;
+  }
+  get module4Question5(): FormControl {
+    return this.module4.get('question5') as FormControl;
+  }
+  get module4Question6(): FormControl {
+    return this.module4.get('question6') as FormControl;
+  }
 
   // MÓDULO 5
-  // get module5(): FormGroup {
-  //   return this.form2.get('module5') as FormGroup;
-  // }
-  // get module5Question1(): FormControl {
-  //   return this.module5.get('question1') as FormControl;
-  // }
-  // get module5Question2(): FormControl {
-  //   return this.module5.get('question2') as FormControl;
-  // }
-  // get module5Question3(): FormControl {
-  //   return this.module5.get('question3') as FormControl;
-  // }
-  // get module5Question4(): FormControl {
-  //   return this.module5.get('question4') as FormControl;
-  // }
-  // get module5Question5(): FormControl {
-  //   return this.module5.get('question5') as FormControl;
-  // }
-  // get module5Question6(): FormControl {
-  //   return this.module5.get('question6') as FormControl;
-  // }
+  get module5(): FormGroup {
+    return this.form2.get('module5') as FormGroup;
+  }
+  get module5Question1(): FormControl {
+    return this.module5.get('question1') as FormControl;
+  }
+  get module5Question2(): FormControl {
+    return this.module5.get('question2') as FormControl;
+  }
+  get module5Question3(): FormControl {
+    return this.module5.get('question3') as FormControl;
+  }
+  get module5Question4(): FormControl {
+    return this.module5.get('question4') as FormControl;
+  }
+  get module5Question5(): FormControl {
+    return this.module5.get('question5') as FormControl;
+  }
+  get module5Question6(): FormControl {
+    return this.module5.get('question6') as FormControl;
+  }
 
   // MÓDULO 6
-  // get module6(): FormGroup {
-  //   return this.form2.get('module6') as FormGroup;
-  // }
-  // get module6Question1(): FormControl {
-  //   return this.module6.get('question1') as FormControl;
-  // }
-  // get module6Question2(): FormControl {
-  //   return this.module6.get('question2') as FormControl;
-  // }
-  // get module6Question3(): FormControl {
-  //   return this.module6.get('question3') as FormControl;
-  // }
-  // get module6Question4(): FormControl {
-  //   return this.module6.get('question4') as FormControl;
-  // }
-  // get module6Question5(): FormControl {
-  //   return this.module6.get('question5') as FormControl;
-  // }
-  // get module6Question6(): FormControl {
-  //   return this.module6.get('question6') as FormControl;
-  // }
+  get module6(): FormGroup {
+    return this.form2.get('module6') as FormGroup;
+  }
+  get module6Question1(): FormControl {
+    return this.module6.get('question1') as FormControl;
+  }
+  get module6Question2(): FormControl {
+    return this.module6.get('question2') as FormControl;
+  }
+  get module6Question3(): FormControl {
+    return this.module6.get('question3') as FormControl;
+  }
+  get module6Question4(): FormControl {
+    return this.module6.get('question4') as FormControl;
+  }
+  get module6Question5(): FormControl {
+    return this.module6.get('question5') as FormControl;
+  }
+  get module6Question6(): FormControl {
+    return this.module6.get('question6') as FormControl;
+  }
 
   // MÓDULO 7
-  // get module7(): FormGroup {
-  //   return this.form2.get('module7') as FormGroup;
-  // }
-  // get module7Question1(): FormControl {
-  //   return this.module7.get('question1') as FormControl;
-  // }
-  // get module7Question2(): FormControl {
-  //   return this.module7.get('question2') as FormControl;
-  // }
-  // get module7Question3(): FormControl {
-  //   return this.module7.get('question3') as FormControl;
-  // }
-  // get module7Question4(): FormControl {
-  //   return this.module7.get('question4') as FormControl;
-  // }
-  // get module7Question5(): FormControl {
-  //   return this.module7.get('question5') as FormControl;
-  // }
-  // get module7Question6(): FormControl {
-  //   return this.module7.get('question6') as FormControl;
-  // }
+  get module7(): FormGroup {
+    return this.form2.get('module7') as FormGroup;
+  }
+  get module7Question1(): FormControl {
+    return this.module7.get('question1') as FormControl;
+  }
+  get module7Question2(): FormControl {
+    return this.module7.get('question2') as FormControl;
+  }
+  get module7Question3(): FormControl {
+    return this.module7.get('question3') as FormControl;
+  }
+  get module7Question4(): FormControl {
+    return this.module7.get('question4') as FormControl;
+  }
+  get module7Question5(): FormControl {
+    return this.module7.get('question5') as FormControl;
+  }
+  get module7Question6(): FormControl {
+    return this.module7.get('question6') as FormControl;
+  }
 
   // MÓDULO 8
-  // get module8(): FormGroup {
-  //   return this.form2.get('module8') as FormGroup;
-  // }
-  // get module8Question1(): FormControl {
-  //   return this.module8.get('question1') as FormControl;
-  // }
-  // get module8Question2(): FormControl {
-  //   return this.module8.get('question2') as FormControl;
-  // }
-  // get module8Question3(): FormControl {
-  //   return this.module8.get('question3') as FormControl;
-  // }
-  // get module8Question4(): FormControl {
-  //   return this.module8.get('question4') as FormControl;
-  // }
-  // get module8Question5(): FormControl {
-  //   return this.module8.get('question5') as FormControl;
-  // }
-  // get module8Question6(): FormControl {
-  //   return this.module8.get('question6') as FormControl;
-  // }
+  get module8(): FormGroup {
+    return this.form2.get('module8') as FormGroup;
+  }
+  get module8Question1(): FormControl {
+    return this.module8.get('question1') as FormControl;
+  }
+  get module8Question2(): FormControl {
+    return this.module8.get('question2') as FormControl;
+  }
+  get module8Question3(): FormControl {
+    return this.module8.get('question3') as FormControl;
+  }
+  get module8Question4(): FormControl {
+    return this.module8.get('question4') as FormControl;
+  }
+  get module8Question5(): FormControl {
+    return this.module8.get('question5') as FormControl;
+  }
+  get module8Question6(): FormControl {
+    return this.module8.get('question6') as FormControl;
+  }
 
   // MÓDULO 9
-  // get module9(): FormGroup {
-  //   return this.form2.get('module9') as FormGroup;
-  // }
-  // get module9Question1(): FormControl {
-  //   return this.module9.get('question1') as FormControl;
-  // }
-  // get module9Question2(): FormControl {
-  //   return this.module9.get('question2') as FormControl;
-  // }
-  // get module9Question3(): FormControl {
-  //   return this.module9.get('question3') as FormControl;
-  // }
-  // get module9Question4(): FormControl {
-  //   return this.module9.get('question4') as FormControl;
-  // }
-  // get module9Question5(): FormControl {
-  //   return this.module9.get('question5') as FormControl;
-  // }
-  // get module9Question6(): FormControl {
-  //   return this.module9.get('question6') as FormControl;
-  // }
+  get module9(): FormGroup {
+    return this.form2.get('module9') as FormGroup;
+  }
+  get module9Question1(): FormControl {
+    return this.module9.get('question1') as FormControl;
+  }
+  get module9Question2(): FormControl {
+    return this.module9.get('question2') as FormControl;
+  }
+  get module9Question3(): FormControl {
+    return this.module9.get('question3') as FormControl;
+  }
+  get module9Question4(): FormControl {
+    return this.module9.get('question4') as FormControl;
+  }
+  get module9Question5(): FormControl {
+    return this.module9.get('question5') as FormControl;
+  }
+  get module9Question6(): FormControl {
+    return this.module9.get('question6') as FormControl;
+  }
 
   // MÓDULO 10
-  // get module10(): FormGroup {
-  //   return this.form2.get('module10') as FormGroup;
-  // }
-  // get module10Question1(): FormControl {
-  //   return this.module10.get('question1') as FormControl;
-  // }
-  // get module10Question2(): FormControl {
-  //   return this.module10.get('question2') as FormControl;
-  // }
-  // get module10Question3(): FormControl {
-  //   return this.module10.get('question3') as FormControl;
-  // }
-  // get module10Question4(): FormControl {
-  //   return this.module10.get('question4') as FormControl;
-  // }
-  // get module10Question5(): FormControl {
-  //   return this.module10.get('question5') as FormControl;
-  // }
-  // get module10Question6(): FormControl {
-  //   return this.module10.get('question6') as FormControl;
-  // }
+  get module10(): FormGroup {
+    return this.form2.get('module10') as FormGroup;
+  }
+  get module10Question1(): FormControl {
+    return this.module10.get('question1') as FormControl;
+  }
+  get module10Question2(): FormControl {
+    return this.module10.get('question2') as FormControl;
+  }
+  get module10Question3(): FormControl {
+    return this.module10.get('question3') as FormControl;
+  }
+  get module10Question4(): FormControl {
+    return this.module10.get('question4') as FormControl;
+  }
+  get module10Question5(): FormControl {
+    return this.module10.get('question5') as FormControl;
+  }
+  get module10Question6(): FormControl {
+    return this.module10.get('question6') as FormControl;
+  }
 
-  // get progressInfo() {
-  //   const formValue = this.form2.getRawValue();
-  //   let total = 0;
-  //   let answered = 0;
+  get progressInfo() {
+    const formValue = this.form2.getRawValue();
+    let total = 0;
+    let answered = 0;
 
-  //   for (const moduleKey of Object.keys(formValue)) {
-  //     const module = formValue[moduleKey];
-  //     for (const questionKey of Object.keys(module)) {
-  //       total++;
-  //       if (module[questionKey] !== null && module[questionKey] !== undefined) {
-  //         answered++;
-  //       }
-  //     }
-  //   }
+    for (const moduleKey of Object.keys(formValue)) {
+      const module = formValue[moduleKey];
+      for (const questionKey of Object.keys(module)) {
+        total++;
+        if (module[questionKey] !== null && module[questionKey] !== undefined) {
+          answered++;
+        }
+      }
+    }
 
-  //   const percentage = Math.round((answered / total) * 100);
-  //   return { answered, total, percentage };
-  // }
+    const percentage = Math.round((answered / total) * 100);
+    return { answered, total, percentage };
+  }
 
   constructor() {
     this.initForm();
