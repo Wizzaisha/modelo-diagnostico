@@ -1,0 +1,31 @@
+<ul class="steps w-full">
+  @for (s of steps; track $index) {
+  <li [ngClass]="getStepClass($index)" class="cursor-pointer">
+    {{ s.label }}
+  </li>
+  }
+</ul>
+
+<div class="mt-5">
+  <ng-content></ng-content>
+</div>
+
+<div class="flex justify-between items-center mt-5">
+  <button
+    (click)="prev()"
+    [disabled]="currentIndex === 0"
+    class="btn btn-lg btn-ghost rounded-full font-bold border-green-primary! text-green-primary! disabled:bg-gray-100 disabled:text-gray-300 disabled:border-gray-100"
+  >
+    Anterior
+  </button>
+
+  <button
+    (click)="next()"
+    class="btn btn-lg bg-green-base! text-green-primary! rounded-full font-bold"
+  >
+    @if (loading) {
+    <span class="loading loading-spinner text-green-primary!"></span>
+    }
+    {{ isLast() ? 'Finalizar' : 'Siguiente' }}
+  </button>
+</div>

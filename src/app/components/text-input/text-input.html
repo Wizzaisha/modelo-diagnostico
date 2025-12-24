@@ -1,0 +1,25 @@
+<label class="input input-lg w-full rounded-full text-gray-500! text-[16px] bg-white!">
+  <input
+    type="text"
+    class="grow"
+    [placeholder]="labelText"
+    [id]="id"
+    [type]="type"
+    [formControl]="control"
+    (blur)="onBlur()"
+    autocomplete="on"
+    [ngClass]="{
+      'input-error': !control!.valid && control.touched
+    }"
+    [readOnly]="readonly"
+  />
+  @if (isRequired) {
+  <span class="text-red-500! text-2xl">*</span>
+  }
+</label>
+
+@if (control!.errors?.['required'] && control.touched) {
+<small class="text-red-500!">Este campo es requerido.</small>
+} @if (control!.errors?.['pattern'] && control.touched) {
+<small class="text-red-500!">Valor no válido.</small>
+}

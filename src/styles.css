@@ -1,0 +1,54 @@
+/* mitr-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Mitr';
+  font-style: normal;
+  font-weight: 300;
+  src: url('./assets/fonts/mitr-v13-latin-300.woff2') format('woff2');
+}
+/* mitr-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Mitr';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/mitr-v13-latin-regular.woff2') format('woff2');
+}
+/* mitr-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Mitr';
+  font-style: normal;
+  font-weight: 500;
+  src: url('./assets/fonts/mitr-v13-latin-500.woff2') format('woff2');
+}
+
+@import 'tailwindcss';
+@plugin "daisyui";
+
+.diagnostico-app {
+  font-family: 'Mitr';
+}
+
+.diagnostico-app * {
+  color: inherit;
+}
+
+@theme {
+  --color-green-primary: #005744;
+  --color-green-secondary: #74c2a3;
+  --color-green-base: #c4d600;
+  --color-background-gray: #f7f7f7;
+  --color-muted: #707070;
+  --color-graphite: #2c2c2c;
+  --color-charcoal: #222222;
+
+  --breakpoint-sm: 0rem;
+  --breakpoint-md: 40rem;
+  --breakpoint-xl: 70rem;
+}
+
+@plugin "daisyui/theme" {
+  name: 'light';
+  --color-primary: #005744;
+}

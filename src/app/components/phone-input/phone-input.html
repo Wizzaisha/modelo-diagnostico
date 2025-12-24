@@ -1,0 +1,30 @@
+<div class="form-control w-full">
+  <label
+    class="input input-lg w-full rounded-full! text-gray-500! text-[16px]! flex items-center gap-3 bg-white!"
+  >
+    <span class="text-gray-500! font-medium pl-3">+57</span>
+
+    <div class="divider divider-horizontal m-0 py-2"></div>
+
+    <input
+      type="tel"
+      class="grow bg-transparent outline-none"
+      [placeholder]="placeholder || labelText"
+      [id]="id"
+      [formControl]="control"
+      (blur)="onBlur()"
+      autocomplete="tel"
+      [ngClass]="{ 'input-error': !control!.valid && control.touched }"
+    />
+
+    @if (isRequired) {
+    <span class="text-red-500! text-2xl pr-3">*</span>
+    }
+  </label>
+
+  @if (control!.errors?.['required'] && control.touched) {
+  <small class="text-red-500!">Este campo es requerido.</small>
+  } @if (control!.errors?.['pattern'] && control.touched) {
+  <small class="text-red-500!">Valor no válido.</small>
+  }
+</div>

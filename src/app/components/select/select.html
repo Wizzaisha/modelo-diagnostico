@@ -1,0 +1,40 @@
+<div class="w-full relative">
+  <select
+    [formControl]="control"
+    (change)="onChange($event)"
+    [id]="id"
+    class="select select-lg w-full min-w-[150px] rounded-full bg-white pr-12 text-[16px] text-gray-500!"
+  >
+    <option disabled selected value="">
+      {{ labelText }}
+
+      @if(isRequired) {
+      <span class="text-red-500!">*</span>
+
+      }
+    </option>
+    @for (option of options; track $index) {
+    <option [value]="option[optionValue]">{{ option[optionLabel] }}</option>
+    }
+  </select>
+
+  <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+    <div class="w-6 h-6 bg-green-base! text-white! rounded flex items-center justify-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+@if (control!.errors?.['required'] && control.touched) {
+<small class="text-red-500!">Este campo es requerido.</small>
+} @if (control!.errors?.['pattern'] && control.touched) {
+<small class="text-red-500!">Valor no válido.</small>
+}

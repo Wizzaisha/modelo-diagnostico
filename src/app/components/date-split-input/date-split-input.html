@@ -1,0 +1,118 @@
+<div class="form-control w-full!">
+  <div class="flex gap-3 flex-wrap! md:flex-nowrap! items-center">
+    @if (showLabel) {
+    <p class="label mb-2 text-gray-500!">
+      {{ labelText }}
+      @if (isRequired) { <span class="text-red-500! ml-1">*</span> }
+    </p>
+    }
+    <!-- Día -->
+    <div class="relative w-full">
+      <select
+        class="select select-lg w-full rounded-full text-gray-500! pr-10 text-[16px] bg-white!"
+        [formControl]="dayCtrl"
+        (blur)="onTouched()"
+        aria-label="Día"
+      >
+        <option value="">Día</option>
+        @for (d of days; track d) {
+        <option [value]="d">{{ d }}</option>
+        }
+      </select>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <div class="w-6 h-6 bg-green-base! text-white! rounded flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mes -->
+    <div class="relative w-full">
+      <select
+        class="select select-lg w-full rounded-full text-gray-500! pr-10 text-[16px] bg-white"
+        [formControl]="monthCtrl"
+        (blur)="onTouched()"
+        aria-label="Mes"
+      >
+        <option value="">Mes</option>
+        @for (m of months; track m.value) {
+        <option [value]="m.value">{{ m.label }}</option>
+        }
+      </select>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <div class="w-6 h-6 bg-green-base! text-white! rounded flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Año -->
+    <div class="relative w-full">
+      <select
+        class="select select-lg w-full rounded-full text-gray-500! pr-10 text-[16px] bg-white"
+        [formControl]="yearCtrl"
+        (blur)="onTouched()"
+        aria-label="Año"
+      >
+        <option value="">Año</option>
+        @for (y of years; track y) {
+        <option [value]="y">{{ y }}</option>
+        }
+      </select>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+        <div class="w-6 h-6 bg-green-base! text-white! rounded flex items-center justify-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje de validación simple -->
+  @if (control!.errors?.['required'] && control.touched) {
+  <small class="text-red-500!">Este campo es requerido.</small>
+  } @if (control!.errors?.['pattern'] && control.touched) {
+  <small class="text-red-500!">Valor no válido.</small>
+  }
+</div>

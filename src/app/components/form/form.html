@@ -1,0 +1,984 @@
+<section
+  class="w-full pt-28! pb-20! px-5! xl:px-20! min-h-screen! flex flex-col justify-center items-center gap-10 font-light text-gray-500!"
+>
+  <h2 class="text-xl md:text-3xl! px-10! py-7! bg-green-secondary rounded-full text-white!">
+    <span class="font-bold">Nota: </span>los campos marcados con un
+    <span class="text-red-500!">(*)</span> son obligatorios.
+  </h2>
+
+  <!-- <app-stepper-component
+    #stepper
+    [steps]="steps"
+    [canProceed]="canProceedFn"
+    (stepChanged)="onStepChanged($event)"
+    (blocked)="onBlocked($event)"
+    (stepCompleted)="onCompleted($event)"
+    [onBeforeNext]="onBeforeNextFn"
+    class="w-full"
+  >
+    @if (stepper.currentIndex === 0) {
+    <form
+      [formGroup]="form1"
+      class="w-full bg-background-gray p-4! md:p-10! rounded-3xl flex! flex-col! gap-5! relative pb-20!"
+    >
+      <div>
+        <h3
+          class="text-green-primary! text-3xl flex flex-row flex-wrap gap-5 items-center font-bold"
+        >
+          <div class="rounded-full border-4! border-green-base! w-14 h-14 relative">
+            <span class="text-7xl absolute -top-6 left-0">1</span>
+          </div>
+
+          <span class="relative inline-block">
+            <span class="relative z-10">Registro</span>
+            <span
+              class="absolute -left-3 bottom-1 w-[110%] h-6 bg-green-base! z-0 rounded-sm -rotate-1 opacity-65"
+            ></span>
+          </span>
+        </h3>
+
+        <div class="divider"></div>
+      </div>
+      <div class="grid! grid-cols-1! xl:grid-cols-2! gap-5">
+        <app-text-input
+          labelText="Nombre completo"
+          [isRequired]="true"
+          [control]="fullNameControl"
+          id="firstNameControl"
+        ></app-text-input>
+
+        <div class="flex! flex-row! flex-wrap! items-start! gap-5!">
+          <app-select
+            labelText="Tipo de identificación"
+            [isRequired]="true"
+            [control]="documentTypeControl"
+            id="documentTypeControl"
+            [options]="documentTypes"
+            optionLabel="value"
+            optionValue="value"
+            class="flex-1! md:w-48!"
+          ></app-select>
+
+          <div class="divider divider-horizontal m-0 justify-self-center"></div>
+
+          <app-number-input
+            labelText="Número"
+            class="flex-1!"
+            [isRequired]="true"
+            [control]="documentNumberControl"
+            id="documentNumberControl"
+          ></app-number-input>
+        </div>
+
+        @if (showExtraFields) {
+        <app-text-input
+          labelText="Correo electrónico de contacto"
+          [isRequired]="true"
+          [control]="emailControl"
+          id="emailControl"
+        ></app-text-input>
+
+        <app-phone-input
+          labelText="Número telefónico de contacto"
+          [isRequired]="true"
+          [control]="phoneControl"
+          id="phoneControl"
+        ></app-phone-input>
+
+        <app-number-input
+          labelText="NIT"
+          [isRequired]="true"
+          [control]="nitNumberControl"
+          id="nitNumberControl"
+        ></app-number-input>
+
+        <app-select
+          labelText="Municipio de residencia"
+          [isRequired]="true"
+          [control]="cityControl"
+          id="cityControl"
+          [options]="municipalities"
+          optionLabel="value"
+          optionValue="value"
+        ></app-select>
+
+        <app-select
+          labelText="Sector económico al que pertenece"
+          [isRequired]="true"
+          [control]="economicSectorControl"
+          id="economicSectorControl"
+          [options]="economicSectorTypes"
+          optionLabel="value"
+          optionValue="value"
+        ></app-select>
+
+        <app-number-input
+          labelText="Número de empleados"
+          [isRequired]="true"
+          [control]="numberEmployeesControl"
+          id="numberEmployeesControl"
+        ></app-number-input>
+
+        <app-text-input
+          labelText="Dirección de la empresa* Escribe la información completa (barrio, torre, manzana, bloque, apto, etc.)"
+          [isRequired]="true"
+          [control]="addressControl"
+          id="addressControl"
+          class="col-span-1 xl:col-span-2"
+        ></app-text-input>
+        }
+      </div>
+
+      @if (showExtraFields) {
+      <div class="w-full">
+        <h3 class="text-green-primary! text-2xl font-normal">
+          Autorización de tratamiento de datos personales
+        </h3>
+
+        <div class="flex flex-col gap-5 mt-10">
+          <p>
+            En mi calidad de titular de información personal, actuando libre y voluntariamente, al
+            diligenciar los datos aquí solicitados, autorizo a Comfenalco Antioquia para que, de
+            forma directa o a través de terceros, realice el tratamiento de la siguiente información
+            personal, el cual consiste en recolectar, almacenar, usar, transferir, transmitir y
+            administrar los datos personales:
+          </p>
+
+          <ul class="list-disc ml-10">
+            <li>Número de identificación</li>
+            <li>Dirección de residencia</li>
+            <li>Teléfono de contacto</li>
+            <li>Correo electrónico</li>
+          </ul>
+
+          <p>
+            Los datos autorizados para el tratamiento se utilizarán únicamente para conformar la
+            base de datos de los posibles beneficiarios del programa Generaciones, marcas que
+            trascienden, desarrollado por Comfenalco Antioquia.
+          </p>
+
+          <p>
+            Lo anterior, de conformidad con el Artículo 15 de la Constitución Política Colombiana,
+            Ley Estatutaria 1581 de 2012, y en concordancia con la política de tratamiento de datos
+            personales, adoptada por la Resolución 924 de 2020, y Política de Seguridad y Privacidad
+            de la Información, adoptada por la Resolución 2256 de 2020, que podrás consultar en
+            <a
+              class="link text-green-primary!"
+              href="https://www.comfenalcoantioquia.com.co/"
+              target="_blank"
+              >nuestro sitio web.</a
+            >
+          </p>
+
+          <label class="label text-green-primary! font-bold text-2xl">
+            <input
+              type="checkbox"
+              class="checkbox checkbox-lg bg-white checked:bg-green-base! checked:text-green-primary!"
+              [formControl]="acceptsPolicyControl"
+            />
+            Acepto
+          </label>
+
+          @if (acceptsPolicyControl!.errors?.['required'] && acceptsPolicyControl.touched) {
+          <small class="text-red-500!">Este campo es requerido.</small>
+          }
+        </div>
+      </div>
+      }
+    </form>
+    } @if (stepper.currentIndex === 1) {
+    <form
+      [formGroup]="form2"
+      class="w-full bg-background-gray p-4! md:p-10! rounded-3xl flex! flex-col! gap-5! relative pb-20!"
+    >
+      <div>
+        <h3
+          class="text-green-primary! text-3xl flex flex-row flex-wrap gap-5 items-center font-bold"
+        >
+          <div class="rounded-full border-4! border-green-base! w-14 h-14 relative">
+            <span class="text-7xl absolute -top-6 left-0">2</span>
+          </div>
+
+          <span class="relative inline-block">
+            <span class="relative z-10">Diagnóstico</span>
+            <span
+              class="absolute -left-3 bottom-1 w-[110%] h-6 bg-green-base! z-0 rounded-sm -rotate-1 opacity-65"
+            ></span>
+          </span>
+        </h3>
+        <div class="divider"></div>
+      </div>
+
+      <p>Responde las siguientes preguntas para realizar el diagnóstico de la empresa</p>
+      <div class="w-full">
+        <div class="text-sm text-gray-600 font-medium mb-1">Progreso</div>
+        <progress
+          class="progress progress-primary! w-full h-4!"
+          [value]="progressInfo.answered"
+          [max]="progressInfo.total"
+        ></progress>
+        <div class="flex justify-between text-sm text-gray-600 mt-1">
+          <span>{{ progressInfo.answered }} de {{ progressInfo.total }} respondidas</span>
+          <span>{{ progressInfo.percentage }}%</span>
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" checked="checked" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>1</span>
+          </div>
+          <span> Propuesta de valor </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Lo que ofrece mi empresa al mercado se diferencia claramente de mi competencia"
+            [isRequired]="true"
+            [control]="module1Question1"
+            id="module1Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Sé que tengo que mejorar mi oferta considerablemente"
+            [isRequired]="true"
+            [control]="module1Question2"
+            id="module1Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mi oferta es igual a otras empresas competidoras"
+            [isRequired]="true"
+            [control]="module1Question3"
+            id="module1Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Nunca he pensado en la propuesta de valor, en cuanto a presentación, novedad, precio, marcas, entre otros."
+            [isRequired]="true"
+            [control]="module1Question4"
+            id="module1Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tengo claro lo que me caracteriza frente a mis clientes"
+            [isRequired]="true"
+            [control]="module1Question5"
+            id="module1Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis productos satisfacen la necesidad de mis clientes"
+            [isRequired]="true"
+            [control]="module1Question6"
+            id="module1Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div class="collapse-title text-green-primary! text-2xl font-bold"></div>
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>2</span>
+          </div>
+          <span>Segmentación de clientes </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Mi empresa es para todo tipo de clientes. Siempre le vendo a todo el que llegue."
+            [isRequired]="true"
+            [control]="module2Question1"
+            id="module2Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis ventas se enfocan en personas que comparten características particulares de: edad, ingresos, estilo de vida, entre otros."
+            [isRequired]="true"
+            [control]="module2Question2"
+            id="module2Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Nunca me he preocupado por definir un tipo de cliente para mi empresa"
+            [isRequired]="true"
+            [control]="module2Question3"
+            id="module2Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Conozco mis clientes, sus preferencia, gustos culinarios e ingresos."
+            [isRequired]="true"
+            [control]="module2Question4"
+            id="module2Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tengo líneas de productos especiales para diferentes tipos de clientes según sus preferencias"
+            [isRequired]="true"
+            [control]="module2Question5"
+            id="module2Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Estoy conociendo mis clientes ideales poco a poco"
+            [isRequired]="true"
+            [control]="module2Question6"
+            id="module2Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div class="collapse-title text-green-primary! text-2xl font-bold"></div>
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>3</span>
+          </div>
+          <span> Canales de distribución </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Tengo diferentes canales físicos y digitales para la entrega de mis productos a los clientes"
+            [isRequired]="true"
+            [control]="module3Question1"
+            id="module3Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Todos mis clientes tienen claridad por cuáles medios puede comprar los productos de mi empresa"
+            [isRequired]="true"
+            [control]="module3Question2"
+            id="module3Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tengo aliados que me apoyan entregando mis productos y servicios"
+            [isRequired]="true"
+            [control]="module3Question3"
+            id="module3Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Nunca he pensado en los canales de distribución de mis productos"
+            [isRequired]="true"
+            [control]="module3Question4"
+            id="module3Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Estoy apenas iniciando a estructurar los canales de distribución de mi empresa"
+            [isRequired]="true"
+            [control]="module3Question5"
+            id="module3Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="La entrega de mis productos al cliente representa un problema para mi empresa"
+            [isRequired]="true"
+            [control]="module3Question6"
+            id="module3Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>4</span>
+          </div>
+          <span> Relacionamiento con los clientes </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Nunca hablo con los clientes para conocer sus opiniones de mis productos"
+            [isRequired]="true"
+            [control]="module4Question1"
+            id="module4Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis clientes me contactan por redes sociales y por este medio hablo con ellos"
+            [isRequired]="true"
+            [control]="module4Question2"
+            id="module4Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tengo diferentes líneas de contacto con mis clientes para recibir comentarios y enviar información"
+            [isRequired]="true"
+            [control]="module4Question3"
+            id="module4Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Periódicamente genero estrategias para conocer y fidelizar mis clientes"
+            [isRequired]="true"
+            [control]="module4Question4"
+            id="module4Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Solo sé de los clientes cuando se quejan de mi producto"
+            [isRequired]="true"
+            [control]="module4Question5"
+            id="module4Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Los comentarios de mis clientes son la principal fuente de mejora de mis productos"
+            [isRequired]="true"
+            [control]="module4Question6"
+            id="module4Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>5</span>
+          </div>
+          <span> Fuentes de ingreso </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="El flujo de caja de mi empresa me permite funcionar adecuadamente"
+            [isRequired]="true"
+            [control]="module5Question1"
+            id="module5Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Las fuentes de ingresos son insuficientes para que mi empresa funcione adecuadamente"
+            [isRequired]="true"
+            [control]="module5Question2"
+            id="module5Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="La principal fuente de ingresos de mi empresa es por ventas"
+            [isRequired]="true"
+            [control]="module5Question3"
+            id="module5Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Los clientes pagan sin problema el precio de mis productos actuales"
+            [isRequired]="true"
+            [control]="module5Question4"
+            id="module5Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Necesito préstamos externos para poder funcionar en la empresa"
+            [isRequired]="true"
+            [control]="module5Question5"
+            id="module5Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis ventas actuales me permiten funcionar e invertir para crecer mi empresa"
+            [isRequired]="true"
+            [control]="module5Question6"
+            id="module5Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>6</span>
+          </div>
+          <span> Capacidad productiva </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Mi empresa tiene la capacidad de satisfacer la demanda de los clientes"
+            [isRequired]="true"
+            [control]="module6Question1"
+            id="module6Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Normalmente no puedo entregar todos los productos que los clientes me piden"
+            [isRequired]="true"
+            [control]="module6Question2"
+            id="module6Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="La empresa cuenta con una estructura de procesos que me permite responder al mercado adecuadamente"
+            [isRequired]="true"
+            [control]="module6Question3"
+            id="module6Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Siento que debo organizar y mejorar urgentemente mi proceso productivo para responder a los clientes"
+            [isRequired]="true"
+            [control]="module6Question4"
+            id="module6Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="El proceso productivo de mi empresa es uno de mis principales dolores de cabeza"
+            [isRequired]="true"
+            [control]="module6Question5"
+            id="module6Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Siempre estoy pensando en mejorar el proceso productivo de mi empresa."
+            [isRequired]="true"
+            [control]="module6Question6"
+            id="module6Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>7</span>
+          </div>
+          <span> Innovación </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="En la empresa siempre estamos mejorando la forma de hacer las cosas"
+            [isRequired]="true"
+            [control]="module7Question1"
+            id="module7Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mi portafolio de productos es el mismo desde hace más de 2 año"
+            [isRequired]="true"
+            [control]="module7Question2"
+            id="module7Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Con lo que hacemos en la empresa estamos bien y no necesitamos mejorar"
+            [isRequired]="true"
+            [control]="module7Question3"
+            id="module7Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tenemos procesos de ideación para crear nuevos productos para nuestros clientes"
+            [isRequired]="true"
+            [control]="module7Question4"
+            id="module7Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Siento una gran necesidad de reinventar la empresa, pero me da miedo probar cosas nuevas"
+            [isRequired]="true"
+            [control]="module7Question5"
+            id="module7Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="El secreto del éxito de mi empresa ha sido siempre tener cosas nuevas para nuestros clientes"
+            [isRequired]="true"
+            [control]="module7Question6"
+            id="module7Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>8</span>
+          </div>
+          <span> Gestión del talento </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Cuento con un equipo de trabajo que me apoya en la empresa"
+            [isRequired]="true"
+            [control]="module8Question1"
+            id="module8Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis empleados tienen un tipo de contrato formal con afiliación a la seguridad social"
+            [isRequired]="true"
+            [control]="module8Question2"
+            id="module8Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Mis empleados son informales y no me interesa contratarlos formalmente"
+            [isRequired]="true"
+            [control]="module8Question3"
+            id="module8Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Me da miedo asumir una carga laboral en mi empresa"
+            [isRequired]="true"
+            [control]="module8Question4"
+            id="module8Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="La rotación de las personas es algo que no me permite crecer como quisiera"
+            [isRequired]="true"
+            [control]="module8Question5"
+            id="module8Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="La formación y el bienestar de mis empleados han sido la mejor inversión"
+            [isRequired]="true"
+            [control]="module8Question6"
+            id="module8Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>9</span>
+          </div>
+          <span> Estrategia de negocio </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Tengo claridad de lo que deseo lograr en los próximos 3 años con mi empresa"
+            [isRequired]="true"
+            [control]="module9Question1"
+            id="module9Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Vivo en el día a día con mi empresa, no pienso en el futuro"
+            [isRequired]="true"
+            [control]="module9Question2"
+            id="module9Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Tengo claros los objetivos que deseo lograr este año con mi empresa."
+            [isRequired]="true"
+            [control]="module9Question3"
+            id="module9Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Analizo mi entorno para estar al tanto de las nuevas tendencias y así aprovechar oportunidades para mi empresa."
+            [isRequired]="true"
+            [control]="module9Question4"
+            id="module9Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="No creo en los planes de acción ni las estrategias. Con mi experiencia es suficiente."
+            [isRequired]="true"
+            [control]="module9Question5"
+            id="module9Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Hago evaluaciones periódicas para saber si estoy cumpliendo los objetivos propuestos y definir planes de acción."
+            [isRequired]="true"
+            [control]="module9Question6"
+            id="module9Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="form-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>10</span>
+          </div>
+          <span> Finanzas e impuestos </span>
+        </div>
+        <div class="collapse-content">
+          <app-checkbox-group
+            labelText="Tengo un presupuesto de ingresos y gastos en la empresa que me permite tomar decisiones."
+            [isRequired]="true"
+            [control]="module10Question1"
+            id="module10Question1"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Las finanzas y los impuestos son un dolor de cabeza "
+            [isRequired]="true"
+            [control]="module10Question2"
+            id="module10Question2"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Conozco cuál es la rentabilidad de mis productos y de la empresa en general."
+            [isRequired]="true"
+            [control]="module10Question3"
+            id="module10Question3"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Los estados financieros solo sirven para pagar impuestos"
+            [isRequired]="true"
+            [control]="module10Question4"
+            id="module10Question4"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Conozco los costos de mi empresa y siempre busco optimizarlos"
+            [isRequired]="true"
+            [control]="module10Question5"
+            id="module10Question5"
+          ></app-checkbox-group>
+          <app-checkbox-group
+            labelText="Desde que la empresa me de ganancias no necesito preocuparme por las finanzas de la empresa"
+            [isRequired]="true"
+            [control]="module10Question6"
+            id="module10Question6"
+          ></app-checkbox-group>
+        </div>
+      </div>
+    </form>
+    } @if (stepper.currentIndex === 2) {
+    <div class="w-full bg-background-gray! p-10 rounded-3xl flex flex-col gap-5 relative">
+      <div>
+        <h3 class="text-green-primary! text-3xl flex flex-row gap-5 items-center font-bold">
+          <div class="rounded-full border-4! border-green-base! w-14 h-14 relative">
+            <span class="text-7xl absolute -top-6 left-0">3</span>
+          </div>
+
+          <span class="relative inline-block">
+            <span class="relative z-10">Resultados</span>
+            <span
+              class="absolute -left-3 bottom-1 w-[110%] h-6 bg-green-base! z-0 rounded-sm -rotate-1"
+            ></span>
+          </span>
+        </h3>
+
+        <div class="divider"></div>
+      </div>
+      @if (resultDiagnosis) {
+      <p>A continuación se presentan los resultados del diagnóstico:</p>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" checked="checked" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>1</span>
+          </div>
+          <span> Propuesta de valor </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>2</span>
+          </div>
+          <span> Segmentación de clientes </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>3</span>
+          </div>
+          <span> Canales de distribución </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>4</span>
+          </div>
+          <span> Relacionamiento con los clientes </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>5</span>
+          </div>
+          <span> Fuentes de ingreso </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>6</span>
+          </div>
+          <span> Capacidad productiva </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>7</span>
+          </div>
+          <span> Innovación puntaje </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>8</span>
+          </div>
+          <span> Gestión del talento puntaje </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>9</span>
+          </div>
+          <span> Estrategia de negocio </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      <div class="collapse collapse-arrow bg-base-100 border border-base-300">
+        <input type="radio" name="results-accordion" />
+        <div
+          class="collapse-title text-green-primary! text-2xl font-bold flex justify-start items-center gap-5"
+        >
+          <div
+            class="rounded-full h-10 w-10 bg-primary text-white! flex justify-center items-center"
+          >
+            <span>10</span>
+          </div>
+          <span> Finanzas e impuestos </span>
+        </div>
+        <div class="collapse-content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </div>
+      </div>
+
+      }
+    </div>
+    }
+  </app-stepper-component> -->
+</section>

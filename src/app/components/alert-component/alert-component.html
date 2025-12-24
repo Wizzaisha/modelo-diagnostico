@@ -1,0 +1,25 @@
+@if (alerts.length > 0) {
+<div class="fixed top-4 right-4 z-50 w-72 max-w-[90vw] flex flex-col gap-3">
+  @for (a of alerts; track a) {
+  <div
+    class="w-full transform transition-all duration-300 ease-out"
+    [class.opacity-0]="a.closing"
+    [class.translate-y-2]="a.closing"
+    role="status"
+    aria-live="polite"
+    [ngClass]="{
+      alert: true,
+      'alert-success': a.type === 'success',
+      'alert-error': a.type === 'error',
+      'alert-info': a.type === 'info',
+      'alert-warning': a.type === 'warning',
+      'shadow-lg': true
+    }"
+  >
+    <div class="w-full flex items-center justify-between gap-3">
+      <span class="font-medium text-sm flex-1">{{ a.message }}</span>
+    </div>
+  </div>
+  }
+</div>
+}

@@ -1,0 +1,38 @@
+<div class="w-full grid grid-cols-[1fr_150px]! items-start gap-4! py-2!">
+  @if (labelText) {
+  <div class="text-gray-500! text-[15px]! leading-snug! font-medium!">
+    {{ labelText }}
+    @if (isRequired) {
+    <span class="text-red-500! ml-1!">*</span>
+    }
+  </div>
+  }
+
+  <div class="flex gap-3! justify-end!">
+    @for (opt of options; track opt.value) {
+    <div
+      role="radio"
+      aria-checked="{{ selected === opt.value }}"
+      tabindex="0"
+      (click)="select(opt.value)"
+      (keydown)="onKey($event, opt.value)"
+      class="btn rounded-xl! w-14! font-semibold! text-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2"
+      [ngClass]="{
+        'bg-green-base! text-green-primary! ring-green-base!':
+          selected === true && opt.value === true,
+        'bg-gray-400! text-white! ring-gray-400!': selected === false && opt.value === false,
+        'bg-base-100! text-gray-600! border border-gray-300!': selected !== opt.value
+      }"
+      title="{{ opt.label }}"
+    >
+      {{ opt.label }}
+    </div>
+    }
+  </div>
+</div>
+
+@if (control!.errors?.['required'] && control.touched) {
+<small class="text-red-500!">Este campo es requerido.</small>
+} @if (control!.errors?.['pattern'] && control.touched) {
+<small class="text-red-500!">Valor no válido.</small>
+}
